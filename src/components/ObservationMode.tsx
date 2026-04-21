@@ -116,7 +116,7 @@ export default function ObservationMode() {
         <div className="mt-12 text-center">
           <p className="text-xs text-white/20 font-mono mb-2">Reference Paper</p>
           <a
-            href="https://www.academia.edu/165777071/IdeaInformation_Induced_Modifications_to_Gravity"
+            href="https://drive.google.com/file/d/1O1RBMJvNzVrwBaTUDup4_dcKFTVajJ5J/view?usp=drive_linkhttps://drive.google.com/file/d/1O1RBMJvNzVrwBaTUDup4_dcKFTVajJ5J/preview"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-6 py-3 rounded-xl text-sm font-mono transition-all duration-300"

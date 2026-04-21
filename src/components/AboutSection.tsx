@@ -95,7 +95,7 @@ export default function AboutSection() {
               (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,204,255,0.3)';
             }}
           >
-            📄 Read Full Paper on Academia.edu
+            📄 Read Full Project
             <span className="text-white/40 group-hover:translate-x-1 transition-transform">→</span>
           </a>
         </div>
