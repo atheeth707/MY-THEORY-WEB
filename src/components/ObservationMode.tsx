@@ -126,7 +126,7 @@ export default function ObservationMode() {
               color: '#00ccff',
             }}
           >
-            📄 View on Academia.edu →
+            📄 View Full Project →
           </a>
         </div>
       </div>
