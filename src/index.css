@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #000005;
+  --color-foreground: #ffffff;
+  --color-primary: #00ccff;
+  --color-secondary: #8800ff;
+  --color-accent: #ff6600;
+  --color-success: #00ffcc;
+  --color-danger: #ff4444;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000005;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000005;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 204, 255, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 204, 255, 0.4);
+}
+
+/* Slider thumb styling */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00ccff;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #00ccff;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 204, 255, 0.4);
+}
+
+/* Screen shake animation */
+@keyframes shake {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-4px, 2px); }
+  20% { transform: translate(4px, -2px); }
+  30% { transform: translate(-3px, -3px); }
+  40% { transform: translate(3px, 3px); }
+  50% { transform: translate(-2px, 1px); }
+  60% { transform: translate(2px, -1px); }
+  70% { transform: translate(-1px, 2px); }
+  80% { transform: translate(1px, -2px); }
+  90% { transform: translate(-1px, -1px); }
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 204, 255, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(0, 204, 255, 0.3); }
+}
