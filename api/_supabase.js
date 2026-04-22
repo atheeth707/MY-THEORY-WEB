@@ -1,7 +1,7 @@
-import supabase from './_supabase.js';
+import { createClient } from '@supabase/supabase-js';
 
 export default async function handler(req, res) {
-  // CORS (safe)
+  // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -11,44 +11,34 @@ export default async function handler(req, res) {
   }
 
   try {
+    // ✅ Create client directly (FIX)
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    );
+
     if (req.method === 'GET') {
-      // 🔥 Always get latest row (important fix)
       const { data, error } = await supabase
         .from('research_about')
         .select('*')
         .order('created_at', { ascending: false })
         .limit(1)
-        .maybeSingle(); // safer than .single()
+        .maybeSingle();
 
       if (error) {
-        console.error('Supabase error:', error);
         return res.status(500).json({
-          error: 'Database error',
-          details: error.message,
+          error: error.message
         });
       }
 
-      if (!data) {
-        return res.status(404).json({
-          error: 'No data found in research_about table',
-        });
-      }
-
-      // ✅ Success response
       return res.status(200).json(data);
     }
 
-    // ❌ Method not allowed
-    return res.status(405).json({
-      error: 'Method not allowed',
-    });
+    return res.status(405).json({ error: 'Method not allowed' });
 
   } catch (err) {
-    console.error('API crash:', err);
-
     return res.status(500).json({
-      error: 'Internal server error',
-      details: err.message,
+      error: err.message
     });
   }
 }
